@@ -34,7 +34,7 @@ class BonusTest {
     }
 
     @Test
-    @DisplayName("BONUS-05: five interrupted presences must not produce a five-day best streak")
+    @DisplayName("BONUS-05: five separated presences must not produce a five-day best streak")
     void interruptedStreaksDoNotReachFive() {
         assertEquals(0,
                 DataFlowTargets.bonus(new int[] {1, 0, 1, 0, 1, 0, 1, 0, 1}, 6));
@@ -46,5 +46,18 @@ class BonusTest {
         assertThrows(IllegalArgumentException.class, () -> DataFlowTargets.bonus(null, 2));
         assertThrows(IllegalArgumentException.class,
                 () -> DataFlowTargets.bonus(new int[] {1, 2, 3}, -1));
+    }
+
+    @Test
+    @DisplayName("BONUS-07: present@40 must not replace streak@41 when best@43 is updated")
+    void separatedPresencesKillWrongBestDefinition() {
+        assertEquals(0,
+                DataFlowTargets.bonus(new int[] {1, 0, 1, 0, 1, 0, 1, 1}, 6));
+    }
+
+    @Test
+    @DisplayName("BONUS-08: score@51 reaches return when threshold is zero and best is below five")
+    void thresholdZeroWithoutAttendanceReturnsFive() {
+        assertEquals(5, DataFlowTargets.bonus(new int[] {}, 0));
     }
 }
