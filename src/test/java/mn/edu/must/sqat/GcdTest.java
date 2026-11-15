@@ -14,7 +14,7 @@ class GcdTest {
     }
 
     @Test
-    @DisplayName("GCD-02: x@13 -> 16, y@13 -> 16, x@17 -> 16, y@18 -> 15 for gcd(12, 8)")
+    @DisplayName("GCD-02: x@13 -> 16, y@13/18 -> 16/17, x@17 -> 16/20 for gcd(12, 8)")
     void gcdLoopBodyCoversMutationAndBackEdge() {
         assertEquals(4, DataFlowTargets.gcd(12, 8));
     }

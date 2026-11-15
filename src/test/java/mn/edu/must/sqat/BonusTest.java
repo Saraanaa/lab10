@@ -60,4 +60,11 @@ class BonusTest {
     void thresholdZeroWithoutAttendanceReturnsFive() {
         assertEquals(5, DataFlowTargets.bonus(new int[] {}, 0));
     }
+
+    @Test
+    @DisplayName("BONUS-09: best@43 reaches line 42 true and false outcomes on later iterations")
+    void bestDefinitionReachesBothNextLoopOutcomes() {
+        assertEquals(0, DataFlowTargets.bonus(new int[] {1, 0, 1, 1, 1}, 5));
+        assertEquals(0, DataFlowTargets.bonus(new int[] {1, 0, 1, 0, 1, 0, 1, 1, 0, 1}, 7));
+    }
 }
