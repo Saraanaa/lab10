@@ -188,4 +188,4 @@ mvn verify
 
 Эцсийн гаралт [`results/mvn-verify-final.txt`](results/mvn-verify-final.txt), CSV нь [`results/jacoco-final.csv`](results/jacoco-final.csv). JaCoCo HTML тайлан `target/site/jacoco/index.html`-д гарна; `target/` `.gitignore`-д хасагдсан.
 
-Repo: [https://github.com/Saraanaa/lab10](https://github.com/Saraanaa/lab10). GitHub-д код push хийгдсэн. Teams Assignment-д холбоос илгээж **Turn in** дарах, нэр болон оюутны кодоо оруулах, clone хийж шалгах нь оюутны аккаунт шаардах тул энэ ажлын орчноос хийж баталгаажуулах боломжгүй.
+
